@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" routerLink="/">Mundo Recetas</a>
+  <a class="navbar-brand" routerLink="/">My angular App</a>
   <button
     class="navbar-toggler"
     type="button"
@@ -19,7 +19,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="/nueva">Nueva</a>
+        <a class="nav-link" routerLink="/nueva" *ngIf="isLogin">Nueva</a>
       </li>
 
       <li class="nav-item">
@@ -31,16 +31,22 @@
 
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="/login">Login</a>
+        <a class="nav-link" routerLink="/login"  *ngIf="!isLogin">Login</a>
       </li>
 
       <li class="nav-item">
-       <img src="https://via.placeholder.com/50/">
+       <img src={{userPicture}} class="user-picture rounded-circle">
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="/login">Salir</a>
+         <a class="nav-link" >{{userNombre}}</a>
+       </li>
+
+      <li class="nav-item salir " >
+        <a class="nav-link" (click)="logout()"  *ngIf="isLogin" >Salir</a>
       </li>
     </ul>
   </div>
 </nav>
+<hr>
+

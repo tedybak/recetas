@@ -1,6 +1,5 @@
-.sticky-footer {
-  position: absolute;
-  bottom: -40px;
-  width: 80%;
-  color: white;
- }
+.footer,
+.push {
+  height: 50px;
+  background-color: orange;
+}
