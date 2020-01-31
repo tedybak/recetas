@@ -23,6 +23,8 @@ import {
   FlashMessagesModule,
   FlashMessagesService
 } from "angular2-flash-messages";
+import { RecetaService } from "./shell/services/receta.service";
+import { AuthGuard } from "./shell/guards/auth.guard";
 
 @NgModule({
   declarations: [
@@ -47,6 +49,6 @@ import {
     AngularFirestoreModule
   ],
   exports: [ShellComponent, CoreRoutingModule],
-  providers: [AngularFireAuth, FlashMessagesService]
+  providers: [AngularFireAuth, FlashMessagesService, RecetaService, AuthGuard]
 })
 export class CoreModule {}

@@ -9,20 +9,18 @@ import { Router } from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
   message: boolean;
-  userNombre:string;
+  userNombre: string;
   userEmail: string;
-  userPicture : string;
-  userId:any;
+  userPicture: string;
+  userId: any;
 
   isLogin: boolean;
-
 
   constructor(private afAuth: AuthService, private router: Router) {}
 
   ngOnInit() {
-    this.afAuth.currentMessage.subscribe(message => (this.message = message));
-    this.onComprobarUsuarioLogueado()
-   }
+    this.onComprobarUsuarioLogueado();
+  }
   logout() {
     this.afAuth.logout();
     this.afAuth.changeMessage(false);
@@ -31,14 +29,14 @@ export class HeaderComponent implements OnInit {
 
   onComprobarUsuarioLogueado() {
     this.afAuth.getAuth().subscribe(auth => {
-      if(auth){
+      if (auth) {
         this.isLogin = true;
         this.userNombre = auth.displayName;
         this.userEmail = auth.email;
         this.userPicture = auth.photoURL;
-        this.userId = auth.uid
-      }else{
-        this.isLogin = false
+        this.userId = auth.uid;
+      } else {
+        this.isLogin = false;
       }
     });
   }

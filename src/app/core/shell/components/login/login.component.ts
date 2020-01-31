@@ -3,21 +3,18 @@ import { AuthService } from "../../services/auth.service";
 import { Router } from "@angular/router";
 import { EventEmitter } from "@angular/core";
 
-
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit {
-  constructor(private afAuth: AuthService, private router: Router) {
-    this.afAuth.currentMessage.subscribe(message => this.message);
-  }
+  constructor(private afAuth: AuthService, private router: Router) {}
 
   message: boolean;
-  userNombre : string;
+  userNombre: string;
   userEmail: string;
-  userPicture : string;
+  userPicture: string;
   userId: string;
 
   ngOnInit() {}
@@ -37,12 +34,10 @@ export class LoginComponent implements OnInit {
         this.afAuth.changeMessage(true);
         this.userNombre = resp.user.displayName;
         this.userEmail = resp.user.email;
-        this.userId = resp.user.uid
-       })
+        this.userId = resp.user.uid;
+      })
       .catch(error => {
         //this.flashMessageService.show(error.dh, { cssClass: 'alert-success', timeout: 5000 });
       });
   }
-
-
 }
