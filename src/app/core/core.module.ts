@@ -25,6 +25,8 @@ import {
 } from "angular2-flash-messages";
 import { RecetaService } from "./shell/services/receta.service";
 import { AuthGuard } from "./shell/guards/auth.guard";
+/* Dependencias doble binding */
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { AuthGuard } from "./shell/guards/auth.guard";
     CoreRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     FlashMessagesModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [ShellComponent, CoreRoutingModule],
   providers: [AngularFireAuth, FlashMessagesService, RecetaService, AuthGuard]

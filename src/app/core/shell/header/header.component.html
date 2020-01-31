@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" routerLink="/">My angular App</a>
+  <a class="navbar-brand" routerLink="/">Pharma shop</a>
   <button
     class="navbar-toggler"
     type="button"
@@ -28,25 +28,22 @@
     </ul>
 
     <ul class="navbar-nav mr-auto">
-
-
       <li class="nav-item">
-        <a class="nav-link" routerLink="/login"  *ngIf="!isLogin">Login</a>
+        <a class="nav-link" routerLink="/login" *ngIf="!isLogin">Login</a>
       </li>
 
       <li class="nav-item">
-       <img src={{userPicture}} class="user-picture rounded-circle">
+        <img src="{{ userPicture }}" class="user-picture rounded-circle" />
       </li>
 
       <li class="nav-item">
-         <a class="nav-link" >{{userNombre}}</a>
-       </li>
+        <a class="nav-link">{{ userNombre }}</a>
+      </li>
 
-      <li class="nav-item salir " >
-        <a class="nav-link" (click)="logout()"  *ngIf="isLogin" >Salir</a>
+      <li class="nav-item salir ">
+        <a class="nav-link" (click)="logout()" *ngIf="isLogin">Salir</a>
       </li>
     </ul>
   </div>
 </nav>
-<hr>
-
+<hr />

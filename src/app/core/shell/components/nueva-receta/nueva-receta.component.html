@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-header">Nueva Receta</div>
       <div class="card-body">
-        <form>
+        <form #formGuardar (ngSubmit)="onSubmit(formGuardar)">
           <fieldset>
             <div class="form-group">
               <label for="titulo">Titulo</label>
@@ -11,15 +11,19 @@
                 type="text"
                 class="form-control"
                 id="titulo"
+                name="titulo"
                 placeholder="Enter titulo"
+                [(ngModel)]="receta.titulo"
               />
             </div>
             <div class="form-group">
               <label for="descripcion">Descripcion receta</label>
               <textarea
                 class="form-control"
-                id="decripcion"
+                id="descripcion"
+                name="descripcion"
                 rows="3"
+                [(ngModel)]="receta.descripcion"
               ></textarea>
             </div>
             <div class="form-group">
@@ -27,20 +31,29 @@
               <textarea
                 class="form-control"
                 id="preparacion"
+                name="preparacion"
                 rows="3"
+                [(ngModel)]="receta.preparacion"
               ></textarea>
             </div>
             <div class="form-group">
-              <label for="descripcion">Ingredientes</label>
+              <label for="ingredientes">Ingredientes</label>
               <textarea
                 class="form-control"
                 id="ingredientes"
+                name="ingredientes"
                 rows="3"
+                [(ngModel)]="receta.ingredientes"
               ></textarea>
             </div>
 
-            <div class="form-group">
-              <label for="exampleSelect1">Temporada</label>
+            <div
+              class="form-group"
+              [(ngModel)]="receta.temporada"
+              id="temporada"
+              name="temporada"
+            >
+              <label for="temporada">Temporada</label>
               <select class="form-control" id="temporada">
                 <option>Primavera</option>
                 <option>Verano</option>
@@ -50,7 +63,9 @@
             </div>
 
             <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-block" (click)="procesarForm()">Submit</button>
+              <button type="submit" class="btn btn-primary btn-block">
+                Submit
+              </button>
             </div>
           </fieldset>
         </form>
