@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-header">Nueva Receta</div>
       <div class="card-body">
-        <form #formGuardar (ngSubmit)="onSubmit(formGuardar)">
+        <form #formGuardar="ngForm" (ngSubmit)="onSubmit(formGuardar)">
           <fieldset>
             <div class="form-group">
               <label for="titulo">Titulo</label>

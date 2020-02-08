@@ -40,7 +40,7 @@ export class RecetaService {
       } else {
         const data = action.payload.data() as IReceta;
         data.id = action.payload.id;
-        return data;
+        return data; 
       }
     });
     return this.receta;
