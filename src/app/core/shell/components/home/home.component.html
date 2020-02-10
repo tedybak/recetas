@@ -5,10 +5,12 @@
    </div>
 </div>
 
-<div class="col p-4 d-flex flex-column position-static">
-  <strong class="d-inline-block mb-2 text-primary">Temporada</strong>
-  <h3 class="mb-0">Titulo Receta</h3>
-  <div class="mb-1 text-muted">Fecha</div>
-  <p class="card-text mb-auto">Descripcion</p>
+<div class="col p-4 d-flex flex-column position-static" *ngFor="let x of recetas">
+  <strong class="d-inline-block mb-2 text-primary">{{x.temporada}}</strong>
+  <h3 class="mb-0">{{x.titulo}}</h3>
+  <div class="mb-1 text-muted">{{x.fechaPublicacion}}</div>
+  <p class="card-text mb-auto">{{x.descripcion}}</p>
   <a href="#" class="stretched-link">Leer Mas</a>
 </div>
+
+ 

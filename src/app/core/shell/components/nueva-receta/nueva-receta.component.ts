@@ -39,6 +39,6 @@ export class NuevaRecetaComponent implements OnInit {
        value.userNombre = user.displayName;
        this.recetaService.addReceta(value)
      })
-     this.router.navigate([['/']])
+     this.router.navigate(['/'])
   }
 }
