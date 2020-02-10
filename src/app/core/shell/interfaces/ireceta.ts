@@ -3,8 +3,9 @@ export interface IReceta {
   titulo?: string;
   descripcion?: string;
   preparacion?: string;
+  ingredientes?: string;
   temporada?: string;
-  fechaPublicacion?: string;
+  fechaPublicacion?: number;
   userId?: string;
   userNombre?: string;
 }

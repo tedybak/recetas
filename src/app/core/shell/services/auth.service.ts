@@ -15,9 +15,7 @@ export class AuthService {
    constructor(private afAuth: AngularFireAuth) {}
 
   loginWithGoogle() {
-    return this.afAuth.auth.signInWithPopup(
-      new firebase.auth.GoogleAuthProvider()
-    );
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
   }
 
   getAuth() {

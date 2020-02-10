@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { RecetaService } from "../../services/receta.service";
 import { IReceta } from "../../interfaces/ireceta";
+import { AuthService} from '../../services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: "app-nueva-receta",
@@ -8,19 +10,35 @@ import { IReceta } from "../../interfaces/ireceta";
   styleUrls: ["./nueva-receta.component.scss"]
 })
 export class NuevaRecetaComponent implements OnInit {
-  receta = {
-    titulo: "zalacain el aventurero",
-    descripcion: "zalacain el aventurero",
-    preparacion: "zalacain el aventurero",
-    ingredientes: "zalacain el aventurero",
-    temporada: "zalacain el aventurero"
+
+  receta : IReceta =  {
+    id: '',
+    titulo: '',
+    descripcion: '',
+    preparacion: '',
+    ingredientes: '',
+    temporada: '',
+    fechaPublicacion: 0,
+    userId:'',
+    userNombre:''
   };
 
-  constructor() {}
+  constructor(
+    private authService : AuthService,
+    private recetaService : RecetaService,
+    private router: Router
+
+  ) {}
 
   ngOnInit() {}
 
-  onSubmit() {
-    alert("procesando form");
+  onSubmit({value} : {value: IReceta}) {
+     value.fechaPublicacion =  (new Date().getTime())
+     this.authService.getAuth().subscribe ( user =>{
+       value.userId = user.uid;
+       value.userNombre = user.displayName;
+       this.recetaService.addReceta(value)
+     })
+     this.router.navigate([['/']])
   }
 }

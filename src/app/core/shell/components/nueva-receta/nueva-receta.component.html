@@ -47,14 +47,9 @@
               ></textarea>
             </div>
 
-            <div
-              class="form-group"
-              [(ngModel)]="receta.temporada"
-              id="temporada"
-              name="temporada"
-            >
+            <div class="form-group" >
               <label for="temporada">Temporada</label>
-              <select class="form-control" id="temporada">
+              <select multiple="" class="form-control" id="temporada" name="temporada" [(ngModel)]="receta.temporada">
                 <option>Primavera</option>
                 <option>Verano</option>
                 <option>Otono</option>
