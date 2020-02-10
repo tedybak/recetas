@@ -6,11 +6,11 @@
 </div>
 
 <div class="col p-4 d-flex flex-column position-static" *ngFor="let x of recetas">
-  <strong class="d-inline-block mb-2 text-primary">{{x.temporada}}</strong>
-  <h3 class="mb-0">{{x.titulo}}</h3>
-  <div class="mb-1 text-muted">{{x.fechaPublicacion}}</div>
-  <p class="card-text mb-auto">{{x.descripcion}}</p>
+  <div class="mb-1 text-muted"><span class="card-text mb-auto"><b>Temporada</b></span> {{x.temporada}}</div>  
+  <div><span class="card-text mb-auto"><b>{{x.titulo}}</b></span></div>
+  <div class="mb-1 text-muted"><span class="card-text mb-auto"><b>Fecha publicacion</b></span> {{x.fechaPublicacion | date: 'd/MM/yy'}}</div>
+  <div class="mb-1 text-muted"><span class="card-text mb-auto"><b>Descripcion</b></span> {{x.descripcion}}</div>
   <a href="#" class="stretched-link">Leer Mas</a>
-</div>
+ </div>
 
  
