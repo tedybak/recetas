@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { RecetaService } from '../../services/receta.service';
+import { IReceta } from '../../interfaces/ireceta';
 
 @Component({
   selector: "app-details",
@@ -8,12 +10,20 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class DetailsComponent implements OnInit {
   id: string;
-  constructor(private route: ActivatedRoute) {}
+  receta;
+  constructor(
+    private route: ActivatedRoute,
+    private recetaService: RecetaService,
+    
+    ) {}
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("id");
+    this.receta = this.recetaService.getReceta(this.id).subscribe(data =>{
+      this.receta = data;
+    })
   }
   onClickDelete() {
-    alert("borrando");
+    
   }
 }

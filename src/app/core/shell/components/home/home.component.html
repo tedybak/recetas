@@ -1,13 +1,13 @@
 <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark mt-2">
   <div class="col-md-6 px-0">
     <h1 class="display-4 font-italic">Recetas increibles</h1>
-    <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+    <p class="lead my-3">Crud para recetas de cocina</p>
    </div>
 </div>
 
 <div class="col p-4 d-flex flex-column position-static" *ngFor="let x of recetas">
   <div class="mb-1 text-muted"><span class="card-text mb-auto"><b>Temporada</b></span> {{x.temporada}}</div>  
-  <div><span class="card-text mb-auto"><b>{{x.titulo}}</b></span></div>
+  <div><span class="card-text mb-auto" ><b><a href="/details/{{x.id}}">{{x.titulo}}</a></b></span></div>
   <div class="mb-1 text-muted"><span class="card-text mb-auto"><b>Fecha publicacion</b></span> {{x.fechaPublicacion | date: 'd/MM/yy'}}</div>
   <div class="mb-1 text-muted"><span class="card-text mb-auto"><b>Descripcion</b></span> {{x.descripcion}}</div>
   <a href="/details/{{x.id}}" class="stretched-link">Leer Mas</a>
