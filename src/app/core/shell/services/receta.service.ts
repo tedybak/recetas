@@ -46,7 +46,7 @@ export class RecetaService {
     return this.receta;
   }
   updateReceta(receta: IReceta) {
-    this.recetaDoc = this.afs.doc(`recetas/${receta.id}`);
+     this.recetaDoc = this.afs.doc<IReceta>(`recetas/${receta.id}`);
     this.recetaDoc.update(receta);
   }
   deleteReceta(receta: IReceta) {

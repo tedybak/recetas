@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-header">Editar Receta</div>
       <div class="card-body">
-        <form>
+        <form #formGuardar="ngForm" (ngSubmit)="onSubmit(formGuardar)">
           <fieldset>
             <div class="form-group">
               <label for="titulo">Titulo</label>
@@ -11,37 +11,45 @@
                 type="text"
                 class="form-control"
                 id="titulo"
+                name="titulo"
                 placeholder="Enter titulo"
+                [(ngModel)]="recetaData.titulo"
               />
             </div>
             <div class="form-group">
-              <label for="descripcion">Editar Descripcion  </label>
+              <label for="descripcion">Descripcion receta</label>
               <textarea
                 class="form-control"
-                id="decripcion"
+                id="descripcion"
+                name="descripcion"
                 rows="3"
+                [(ngModel)]="recetaData.descripcion"
               ></textarea>
             </div>
             <div class="form-group">
-              <label for="preparacion">Editar Preparacion</label>
+              <label for="preparacion">Preparacion receta</label>
               <textarea
                 class="form-control"
                 id="preparacion"
+                name="preparacion"
                 rows="3"
+                [(ngModel)]="recetaData.preparacion"
               ></textarea>
             </div>
             <div class="form-group">
-              <label for="descripcion">Editar Ingredientes</label>
+              <label for="ingredientes">Ingredientes</label>
               <textarea
                 class="form-control"
                 id="ingredientes"
+                name="ingredientes"
                 rows="3"
+                [(ngModel)]="recetaData.ingredientes"
               ></textarea>
             </div>
 
-            <div class="form-group">
-              <label for="exampleSelect1">Temporada</label>
-              <select multiple="" class="form-control" id="temporada">
+            <div class="form-group" >
+              <label for="temporada">Temporada</label>
+              <select multiple="" class="form-control" id="temporada" name="temporada" [(ngModel)]="recetaData.temporada">
                 <option>Primavera</option>
                 <option>Verano</option>
                 <option>Otono</option>
@@ -50,7 +58,9 @@
             </div>
 
             <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-block" (click)="procesarForm()">Submit</button>
+              <button type="submit" class="btn btn-primary btn-block">
+                Submit
+              </button>
             </div>
           </fieldset>
         </form>

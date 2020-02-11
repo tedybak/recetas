@@ -6,9 +6,10 @@
 </div>
 
 <div class="col p-4 d-flex flex-column position-static" *ngFor="let x of recetas">
+ 
   <div class="mb-1 text-muted"><span class="card-text mb-auto"><b>Temporada</b></span> {{x.temporada}}</div>  
   <div><span class="card-text mb-auto" ><b><a href="/details/{{x.id}}">{{x.titulo}}</a></b></span></div>
-  <div class="mb-1 text-muted"><span class="card-text mb-auto"><b>Fecha publicacion</b></span> {{x.fechaPublicacion | date: 'd/MM/yy'}}</div>
+  <div class="mb-1 text-muted"><span class="card-text mb-auto"><b>Fecha publicacion</b></span> {{x.fechaPublicacion | date: 'd/MM/yy'}} por  {{x.userNombre}}</div>
   <div class="mb-1 text-muted"><span class="card-text mb-auto"><b>Descripcion</b></span> {{x.descripcion}}</div>
   <a href="/details/{{x.id}}" class="stretched-link">Leer Mas</a>
  </div>

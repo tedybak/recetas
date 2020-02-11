@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { RecetaService } from '../../services/receta.service';
 import { IReceta } from '../../interfaces/ireceta';
 import { AuthService } from '../../services/auth.service';
@@ -19,16 +19,14 @@ export class DetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private recetaService: RecetaService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
 
   ) { }
 
   ngOnInit() {
-
-    
     this.datosUsuarioLoggued();
     this.datosReceta();
-
   }
 
   datosUsuarioLoggued() {
@@ -42,6 +40,7 @@ export class DetailsComponent implements OnInit {
       this.userRecetaId = data.userId;
       this.receta = data;
 
+      // este parte del codigo nos permite comprobar si el usuario logueado es titular del post, si es asi podra editar y borrar
       if(this.userLoggedId == this.userRecetaId){
         this.isOwner = true;
       } 
@@ -51,7 +50,8 @@ export class DetailsComponent implements OnInit {
 
 
   onClickDelete() {
-
+    this.recetaService.deleteReceta(this.receta);
+    this.router.navigate(['/'])
   }
 
 
